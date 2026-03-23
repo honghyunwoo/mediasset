@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import InquiryForm from "@/components/InquiryForm";
 import { boardCategories } from "@/data/boards";
 import { buildInquiryHref, getBoardInquiryPrefill } from "@/lib/inquiry";
+import { hasInquiryNotificationConfig } from "@/lib/inquiry-service";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 const solutionCards = [
@@ -87,13 +88,7 @@ export default function Page() {
   const featuredBoards = boardCategories.filter((category) =>
     ["doctor-life", "corporate-insurance", "estate-tax"].includes(category.slug),
   );
-  const isInquiryFormAvailable =
-    process.env.VERCEL !== "1" ||
-    Boolean(
-      process.env.GOOGLE_SHEET_ID &&
-      process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL &&
-      process.env.GOOGLE_PRIVATE_KEY,
-    );
+  const isInquiryFormAvailable = hasInquiryNotificationConfig();
 
   return (
     <main className="page-shell">
@@ -333,7 +328,7 @@ export default function Page() {
           <div className="contact-box contact-box--form">
             <p className="contact-box__title">전화 또는 이메일 문의</p>
             <p className="contact-box__text">
-              현재 온라인 접수 연결을 마무리하는 중입니다. 아래 연락처로 문의주시면 직접 안내드립니다.
+              온라인 문의 연결이 준비되지 않았습니다. 아래 연락처로 문의주시면 직접 안내드립니다.
             </p>
             <div className="contact-box__actions">
               <a className="primary-button" href={`tel:${siteConfig.phone.replace(/-/g, "")}`}>
@@ -352,11 +347,15 @@ export default function Page() {
           {siteConfig.name} · {siteConfig.affiliation}
         </strong>
         <p>
-          {siteConfig.consultantName} | {siteConfig.phone} | {siteConfig.email}
+          문의 접수 후 24시간 이내 연락드립니다.
         </p>
-        <p>{siteConfig.address}</p>
+        <p>상담 접수를 위한 최소한의 정보만 수집합니다.</p>
         <p className="site-footer__note">
-          상담 문의 접수용 페이지이며, 상세 안내는 상담 과정에서 개별적으로 전달드립니다.
+          개인정보 정정 및 삭제 요청:{" "}
+          <a className="detail-link" href={`mailto:${siteConfig.email}`}>
+            {siteConfig.email}
+          </a>{" "}
+          · <Link href="/privacy">개인정보처리방침</Link>
         </p>
       </footer>
     </main>

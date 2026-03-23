@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
@@ -136,8 +137,12 @@ export default function InquiryForm() {
           onChange={handleChange}
           required
         />
-        <span>연락을 위한 정보 수집에 동의합니다.</span>
+        <span>개인정보 수집 및 이용에 동의합니다.</span>
       </label>
+      <p className="consent-note">
+        수집 항목: 이름, 연락처, 상담 분야, 상담 내용 · 문의 확인 및 회신 후 지체 없이 파기합니다.{" "}
+        <Link href="/privacy">개인정보처리방침 보기</Link>
+      </p>
 
       <div className="inquiry-actions">
         <button className="primary-button" type="submit" disabled={status === "submitting"}>

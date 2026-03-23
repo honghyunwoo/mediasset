@@ -1087,6 +1087,21 @@ a {
   margin-top: 3px;
 }
 
+.consent-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 0.94rem;
+}
+
+.consent-note a,
+.site-footer a,
+.policy-summary a,
+.policy-section a {
+  color: var(--navy);
+  font-weight: 700;
+}
+
 .inquiry-actions {
   margin-top: 18px;
 }
@@ -1129,6 +1144,51 @@ a {
   padding-top: 10px;
   border-top: 1px solid rgba(19, 52, 91, 0.1);
   font-size: 0.94rem;
+}
+
+.policy-panel {
+  display: grid;
+  gap: 28px;
+}
+
+.policy-summary {
+  padding: 22px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(19, 52, 91, 0.05), rgba(88, 190, 197, 0.1));
+  border: 1px solid rgba(19, 52, 91, 0.08);
+}
+
+.policy-summary strong {
+  display: block;
+  color: var(--navy-deep);
+}
+
+.policy-summary p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.policy-sections {
+  display: grid;
+  gap: 22px;
+}
+
+.policy-section h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--navy-deep);
+}
+
+.policy-list {
+  margin: 14px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.82;
+}
+
+.policy-list li + li {
+  margin-top: 10px;
 }
 
 .quick-contact-bar {

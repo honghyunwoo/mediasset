@@ -17,6 +17,12 @@ export default function sitemap() {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: absoluteUrl("/privacy"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
     ...boardCategories.map((category) => ({
       url: absoluteUrl(`/boards/${category.slug}`),
       lastModified,
