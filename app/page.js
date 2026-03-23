@@ -87,6 +87,13 @@ export default function Page() {
   const featuredBoards = boardCategories.filter((category) =>
     ["doctor-life", "corporate-insurance", "estate-tax"].includes(category.slug),
   );
+  const isInquiryFormAvailable =
+    process.env.VERCEL !== "1" ||
+    Boolean(
+      process.env.GOOGLE_SHEET_ID &&
+      process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL &&
+      process.env.GOOGLE_PRIVATE_KEY,
+    );
 
   return (
     <main className="page-shell">
@@ -315,12 +322,29 @@ export default function Page() {
             ))}
           </ul>
         </div>
-        <div className="contact-box contact-box--form">
-          <p className="contact-box__title">문의 남기기</p>
-          <Suspense fallback={<p className="form-feedback">상담 폼을 불러오는 중입니다.</p>}>
-            <InquiryForm />
-          </Suspense>
-        </div>
+        {isInquiryFormAvailable ? (
+          <div className="contact-box contact-box--form">
+            <p className="contact-box__title">문의 남기기</p>
+            <Suspense fallback={<p className="form-feedback">상담 폼을 불러오는 중입니다.</p>}>
+              <InquiryForm />
+            </Suspense>
+          </div>
+        ) : (
+          <div className="contact-box contact-box--form">
+            <p className="contact-box__title">전화 또는 이메일 문의</p>
+            <p className="contact-box__text">
+              현재 온라인 접수 연결을 마무리하는 중입니다. 아래 연락처로 문의주시면 직접 안내드립니다.
+            </p>
+            <div className="contact-box__actions">
+              <a className="primary-button" href={`tel:${siteConfig.phone.replace(/-/g, "")}`}>
+                전화 문의하기
+              </a>
+              <a className="ghost-button ghost-button--dark" href={`mailto:${siteConfig.email}`}>
+                이메일 문의하기
+              </a>
+            </div>
+          </div>
+        )}
       </section>
 
       <footer className="site-footer">

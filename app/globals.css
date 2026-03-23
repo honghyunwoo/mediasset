@@ -658,9 +658,26 @@ a {
   color: var(--navy);
 }
 
-.contact-box .primary-button {
+.contact-box__text {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.contact-box__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-top: 22px;
+}
+
+.contact-box .primary-button {
   width: 100%;
+}
+
+.contact-box__actions .primary-button,
+.contact-box__actions .ghost-button {
+  width: auto;
 }
 
 .contact-note {
