@@ -1,0 +1,16 @@
+node_modules/
+.next/
+.vercel/
+.playwright-cli/
+data/inquiries/
+_tmp*.log
+*.log
+
+codex-home/
+.codex/
+codex-home.ps1
+README-CODEX-LOCAL.md
+.env
+.env.local
+.env.*.local
+!.env.example
