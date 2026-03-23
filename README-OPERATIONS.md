@@ -16,7 +16,7 @@
 ```env
 RESEND_API_KEY=
 INQUIRY_NOTIFY_FROM=no-reply@mediasset.kr
-INQUIRY_NOTIFY_TO=4993357@naver.com
+INQUIRY_NOTIFY_TO=mediasset1@gmail.com
 
 GOOGLE_SHEET_ID=
 GOOGLE_SHEET_RANGE=Inquiries!A:M
@@ -66,7 +66,7 @@ npm run start
 
 - Google Sheets에 새 행이 추가되는지
 - `notificationStatus`가 `sent`로 들어가는지
-- `4993357@naver.com`으로 메일이 오는지
+- `mediasset1@gmail.com`으로 메일이 오는지
 
 ## 6. 현재 구현 범위
 
