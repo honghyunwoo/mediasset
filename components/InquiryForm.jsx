@@ -12,6 +12,18 @@ const initialState = {
   consent: false,
 };
 
+const needTypeAliases = {
+  "의사 개인 생명보험": "의사 개인 보장",
+  "법인보험": "법인보험 · 임원보장",
+  "상속 · 증여 대비": "상속 · 증여 · 자금 연계",
+  "부동산세금 · 법인세 연계": "상속 · 증여 · 자금 연계",
+};
+
+function normalizeNeedType(value) {
+  const trimmed = String(value || "").trim();
+  return needTypeAliases[trimmed] || trimmed;
+}
+
 export default function InquiryForm() {
   const searchParams = useSearchParams();
   const [form, setForm] = useState(initialState);
@@ -20,7 +32,7 @@ export default function InquiryForm() {
 
   useEffect(() => {
     const prefilledValues = {
-      needType: searchParams.get("needType") || "",
+      needType: normalizeNeedType(searchParams.get("needType") || ""),
       message: searchParams.get("message") || "",
     };
 

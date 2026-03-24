@@ -13,7 +13,7 @@ const consultationItems = [
     title: "의사 개인 보장",
     text: "생명보험과 현재 보장 구조를 먼저 봅니다.",
     href: buildInquiryHref({
-      needType: "의사 개인 생명보험",
+      needType: "의사 개인 보장",
       message: "의사 개인 보장 점검 상담을 문의드립니다.",
     }),
   },
@@ -21,7 +21,7 @@ const consultationItems = [
     title: "법인보험 · 임원보장",
     text: "대표와 임원 보장, 법인보험 구조를 정리합니다.",
     href: buildInquiryHref({
-      needType: "법인보험",
+      needType: "법인보험 · 임원보장",
       message: "법인보험 구조 상담을 문의드립니다.",
     }),
   },
@@ -171,9 +171,9 @@ export default function Page() {
           </div>
         ) : (
           <div className="contact-box contact-box--form">
-            <p className="contact-box__title">전화 또는 이메일 문의</p>
+            <p className="contact-box__title">빠른 상담 안내</p>
             <p className="contact-box__text">
-              온라인 문의 연결이 준비되지 않았습니다. 아래 연락처로 문의주시면 직접 안내드립니다.
+              전화 또는 이메일로 문의주시면 확인 후 24시간 내 직접 연락드립니다.
             </p>
             <div className="contact-box__actions">
               <a className="primary-button" href={`tel:${siteConfig.phone.replace(/-/g, "")}`}>
