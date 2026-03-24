@@ -799,6 +799,8 @@ textarea:focus-visible {
 
 .expert-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
 }
 
 .expert-card {
@@ -833,6 +835,10 @@ textarea:focus-visible {
   gap: 20px;
   padding: 26px;
   margin-top: 56px;
+}
+
+.partner-section {
+  margin-top: 48px;
 }
 
 .briefing-teaser {

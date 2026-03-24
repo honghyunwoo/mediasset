@@ -44,9 +44,9 @@ export default async function BoardCategoryPage({ params }) {
   return (
     <main className="subpage-shell">
       <section className="subpage-hero">
-        <p className="section-label">{category.eyebrow}</p>
+        <p className="section-label">{category.shortTitle}</p>
         <h1>{category.title}</h1>
-        <p>{category.hero}</p>
+        <p>{category.description}</p>
         <p className="subpage-hero__subcopy">
           등록 글 {category.posts.length}건
         </p>
@@ -55,7 +55,7 @@ export default async function BoardCategoryPage({ params }) {
             className="primary-button"
             href={buildInquiryHref(getBoardInquiryPrefill(category))}
           >
-            보험 상담 문의하기
+            문의 남기기
           </Link>
           <Link className="ghost-button ghost-button--dark" href="/boards">
             브리핑 목록
@@ -95,18 +95,17 @@ export default async function BoardCategoryPage({ params }) {
       </section>
 
       <section className="board-cta-panel">
-        <p className="section-label">Next Step</p>
-        <h2>브리핑을 읽고 끝내기보다, 현재 보험 구조를 직접 점검해 보는 것이 더 빠를 수 있습니다.</h2>
+        <p className="section-label">문의하기</p>
+        <h2>읽어본 뒤 지금 구조를 직접 점검해보는 쪽이 더 빠를 수 있습니다.</h2>
         <p>
-          현재 고객 유형과 보험 관심 분야를 남겨 주시면 접수 후 24시간 이내에
-          연락드리고 상담 방향을 먼저 안내해 드리겠습니다.
+          고객 유형과 현재 고민을 남겨주시면 접수 후 24시간 이내 연락드리고 상담 방향을 먼저 안내해 드리겠습니다.
         </p>
         <div className="subpage-actions">
           <Link
             className="primary-button"
             href={buildInquiryHref(getBoardInquiryPrefill(category))}
           >
-            보험 상담 문의하기
+            문의 남기기
           </Link>
           <Link className="ghost-button ghost-button--dark" href="/boards">
             다른 브리핑 보기

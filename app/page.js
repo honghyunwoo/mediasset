@@ -46,6 +46,36 @@ const advisorHighlights = [
   "상속·증여, 승계, 자금 흐름 연결",
 ];
 
+const partnerCards = [
+  {
+    label: "법인보험",
+    title: "대표와 임원 보장을 함께 봅니다.",
+    text: "법인 운영과 대표 보장을 따로 보지 않고, 실제 보호 구조가 맞는지 같이 점검합니다.",
+    href: buildInquiryHref({
+      needType: "법인보험 · 임원보장",
+      message: "법인보험과 임원보장 구조 상담을 문의드립니다.",
+    }),
+  },
+  {
+    label: "상속 · 증여",
+    title: "가족 보호와 승계 흐름을 함께 정리합니다.",
+    text: "상속·증여 이슈를 따로 떼지 않고, 실제 자금 흐름과 보호 목적까지 같이 설명합니다.",
+    href: buildInquiryHref({
+      needType: "상속 · 증여 · 자금 연계",
+      message: "상속·증여와 승계 흐름 상담을 문의드립니다.",
+    }),
+  },
+  {
+    label: "세무 · 자금",
+    title: "세금과 자금 이슈도 보험 상담 안에서 연결합니다.",
+    text: "부동산세금, 법인세, 자금 흐름처럼 함께 봐야 하는 주제는 상담 안에서 연결해 정리합니다.",
+    href: buildInquiryHref({
+      needType: "기존 보험 점검",
+      message: "세무·자금 연계 관점에서 보험 구조 상담을 문의드립니다.",
+    }),
+  },
+];
+
 const contactItems = [
   { label: "전화", value: siteConfig.phone, href: `tel:${siteConfig.phone.replace(/-/g, "")}` },
   { label: "이메일", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
@@ -235,6 +265,26 @@ export default function Page() {
           <a className="ghost-button ghost-button--dark advisor-panel__action" href="#contact">
             문의로 바로 이동
           </a>
+        </div>
+      </section>
+
+      <section className="content-grid partner-section">
+        <div className="consultation-heading">
+          <p className="section-label">함께 보는 영역</p>
+          <h2>보험 상담은 여기까지 연결됩니다.</h2>
+          <p>법인, 승계, 세무와 자금 흐름처럼 함께 봐야 하는 주제는 같은 흐름 안에서 정리합니다.</p>
+        </div>
+        <div className="expert-grid">
+          {partnerCards.map((card) => (
+            <article className="expert-card" key={card.title}>
+              <p className="section-label">{card.label}</p>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+              <Link className="text-link" href={card.href}>
+                이 내용으로 문의하기
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 

@@ -76,7 +76,7 @@ export default async function BoardPostPage({ params }) {
   return (
     <main className="subpage-shell">
       <section className="subpage-hero">
-        <p className="section-label">{category.eyebrow}</p>
+        <p className="section-label">{category.shortTitle}</p>
         <div className="board-post-card__meta board-post-card__meta--hero">
           <span>{post.tag}</span>
           <span>{formatBoardDate(post.date)}</span>
@@ -89,7 +89,7 @@ export default async function BoardPostPage({ params }) {
             className="primary-button"
             href={buildInquiryHref(getBoardInquiryPrefill(category, post))}
           >
-            이 주제로 문의하기
+            문의 남기기
           </Link>
           <Link className="ghost-button ghost-button--dark" href={`/boards/${category.slug}`}>
             같은 카테고리 보기
@@ -104,18 +104,17 @@ export default async function BoardPostPage({ params }) {
       </article>
 
       <section className="board-cta-panel">
-        <p className="section-label">Next Step</p>
-        <h2>내용을 읽고 끝내기보다, 현재 구조에 맞게 직접 점검해 보는 것이 더 빠를 수 있습니다.</h2>
+        <p className="section-label">문의하기</p>
+        <h2>내용을 읽고 끝내기보다, 현재 구조에 맞게 직접 점검해 보는 쪽이 더 빠를 수 있습니다.</h2>
         <p>
-          문의를 남겨주시면 접수 후 24시간 이내 연락드리고, 현재 상황에 맞는
-          상담 방향을 먼저 정리해 드립니다.
+          문의를 남겨주시면 접수 후 24시간 이내 연락드리고, 현재 상황에 맞는 상담 방향을 먼저 정리해 드립니다.
         </p>
         <div className="subpage-actions">
           <Link
             className="primary-button"
             href={buildInquiryHref(getBoardInquiryPrefill(category, post))}
           >
-            이 주제로 문의하기
+            문의 남기기
           </Link>
           <Link className="ghost-button ghost-button--dark" href={`/boards/${category.slug}`}>
             브리핑 목록으로 돌아가기

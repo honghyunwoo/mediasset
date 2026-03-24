@@ -27,11 +27,9 @@ export const boardCategories = [
     slug: "notice",
     title: "상담 · 운영 안내",
     shortTitle: "안내",
-    eyebrow: "Consulting Notice",
-    description:
-      "상담 일정과 진행 안내를 모았습니다.",
-    hero:
-      "상담 전 먼저 확인하면 좋은 기본 안내입니다.",
+    eyebrow: "상담 안내",
+    description: "상담 일정과 기본 안내를 모았습니다.",
+    hero: "상담 전 먼저 확인하면 좋은 기본 안내입니다.",
     posts: [
       post({
         slug: "april-insurance-consulting-schedule",
@@ -108,11 +106,9 @@ export const boardCategories = [
     slug: "doctor-life",
     title: "의사 생명보험 브리핑",
     shortTitle: "의사 보험",
-    eyebrow: "Doctor Life Insurance",
-    description:
-      "의사 개인 보장과 기존 보험 점검을 다룹니다.",
-    hero:
-      "의사 개인 보험 관련 핵심 주제를 정리했습니다.",
+    eyebrow: "의사 보험",
+    description: "의사 개인 보장과 기존 보험 점검을 다룹니다.",
+    hero: "의사 개인 보험 관련 핵심 주제를 정리했습니다.",
     posts: [
       post({
         slug: "doctor-life-insurance-review-start",
@@ -189,11 +185,9 @@ export const boardCategories = [
     slug: "corporate-insurance",
     title: "법인보험 솔루션",
     shortTitle: "법인보험",
-    eyebrow: "Corporate Insurance",
-    description:
-      "법인 대표와 임원 보장, 법인보험 구조를 다룹니다.",
-    hero:
-      "법인보험 관련 핵심 주제를 정리했습니다.",
+    eyebrow: "법인보험",
+    description: "법인 대표와 임원 보장, 법인보험 구조를 다룹니다.",
+    hero: "법인보험 관련 핵심 주제를 정리했습니다.",
     posts: [
       post({
         slug: "when-to-start-corporate-insurance-review",
@@ -268,13 +262,11 @@ export const boardCategories = [
   },
   {
     slug: "estate-tax",
-    title: "상속 · 증여 · 세금 연계",
+    title: "상속 · 증여 · 자금 연계",
     shortTitle: "상속/세금",
-    eyebrow: "Estate & Tax",
-    description:
-      "상속, 증여, 세금 이슈와 보험 연결을 다룹니다.",
-    hero:
-      "상속, 증여, 세금 관련 핵심 흐름을 정리했습니다.",
+    eyebrow: "상속 · 자금",
+    description: "상속, 증여, 자금 흐름과 보험 연결을 다룹니다.",
+    hero: "상속, 증여, 자금 관련 핵심 흐름을 정리했습니다.",
     posts: [
       post({
         slug: "where-insurance-connects-to-estate-planning",
@@ -351,11 +343,9 @@ export const boardCategories = [
     slug: "seminar-guide",
     title: "세미나 · 상담 가이드",
     shortTitle: "세미나/가이드",
-    eyebrow: "Seminar & Guide",
-    description:
-      "세미나 이후와 첫 상담 전에 보면 좋은 내용을 모았습니다.",
-    hero:
-      "세미나와 상담 준비 흐름을 간단히 정리했습니다.",
+    eyebrow: "상담 가이드",
+    description: "첫 상담 전과 세미나 이후에 보면 좋은 내용을 모았습니다.",
+    hero: "세미나와 상담 준비 흐름을 간단히 정리했습니다.",
     posts: [
       post({
         slug: "what-to-prepare-for-first-insurance-consulting",

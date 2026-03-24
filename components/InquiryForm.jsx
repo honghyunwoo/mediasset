@@ -26,7 +26,21 @@ function normalizeNeedType(value) {
   return needTypeAliases[trimmed] || trimmed;
 }
 
+function createClientReference() {
+  const now = new Date();
+  const year = String(now.getFullYear()).slice(-2);
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const suffix = crypto.randomUUID().slice(0, 6).toUpperCase();
+
+  return {
+    reference: `MAP-${year}${month}${day}-${suffix}`,
+    submittedAt: now.toISOString(),
+  };
+}
+
 async function submitViaFormSubmit(form) {
+  const { reference, submittedAt } = createClientReference();
   const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(siteConfig.email)}`;
   const response = await fetch(endpoint, {
     method: "POST",
@@ -37,9 +51,12 @@ async function submitViaFormSubmit(form) {
     body: JSON.stringify({
       name: form.name,
       phone: form.phone,
-      needType: form.needType,
+      inquiry_type: form.needType,
+      reference,
+      submitted_at: submittedAt,
+      source: siteConfig.url,
       message: form.message,
-      _subject: `[MAP컨설팅] 새 상담 문의`,
+      _subject: `[MAP컨설팅] ${form.needType || "상담"} 문의`,
       _template: "table",
     }),
   });
