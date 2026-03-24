@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
+import { siteConfig } from "@/lib/site";
+
 const initialState = {
   name: "",
   phone: "",
@@ -22,6 +24,40 @@ const needTypeAliases = {
 function normalizeNeedType(value) {
   const trimmed = String(value || "").trim();
   return needTypeAliases[trimmed] || trimmed;
+}
+
+async function submitViaFormSubmit(form) {
+  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(siteConfig.email)}`;
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name: form.name,
+      phone: form.phone,
+      needType: form.needType,
+      message: form.message,
+      _subject: `[MAP컨설팅] 새 상담 문의`,
+      _template: "table",
+    }),
+  });
+
+  const result = await response.json();
+  const isFailure = String(result.success).toLowerCase() === "false";
+
+  if (!response.ok || isFailure) {
+    const message = String(result.message || "");
+
+    if (message.toLowerCase().includes("activation")) {
+      throw new Error("운영 메일로 활성화 확인 메일을 보냈습니다. 메일 확인 후 다시 문의를 접수해 주세요.");
+    }
+
+    throw new Error(result.message || "문의 전송에 실패했습니다.");
+  }
+
+  return result;
 }
 
 export default function InquiryForm() {
@@ -81,10 +117,20 @@ export default function InquiryForm() {
       setStatus("success");
       setFeedback("문의가 접수되었습니다. 24시간 내 연락드립니다.");
       setForm(initialState);
+      return;
     } catch (error) {
-      setStatus("error");
-      setFeedback(error.message || "문의를 전송하지 못했습니다.");
+      try {
+        await submitViaFormSubmit(form);
+      } catch (fallbackError) {
+        setStatus("error");
+        setFeedback(fallbackError.message || "문의를 전송하지 못했습니다.");
+        return;
+      }
     }
+
+    setStatus("success");
+    setFeedback("문의가 접수되었습니다. 24시간 내 연락드립니다.");
+    setForm(initialState);
   }
 
   return (
