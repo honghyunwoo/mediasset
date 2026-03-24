@@ -80,7 +80,7 @@ export default function InquiryForm() {
       <div className="inquiry-intro">
         <p className="inquiry-intro__title">간단히 남겨주시면 됩니다.</p>
         <p className="inquiry-intro__text">
-          연락처와 상담 내용을 남겨주시면 확인 후 연락드립니다.
+          연락처와 상담 내용을 남겨주시면 확인 후 직접 연락드립니다.
         </p>
       </div>
 
@@ -109,11 +109,10 @@ export default function InquiryForm() {
           <span>상담 분야</span>
           <select name="needType" value={form.needType} onChange={handleChange} required>
             <option value="">선택해 주세요</option>
-            <option value="의사 개인 생명보험">의사 개인 생명보험</option>
-            <option value="법인보험">법인보험</option>
+            <option value="의사 개인 보장">의사 개인 보장</option>
+            <option value="법인보험 · 임원보장">법인보험 · 임원보장</option>
             <option value="기존 보험 점검">기존 보험 점검</option>
-            <option value="상속 · 증여 대비">상속 · 증여 대비</option>
-            <option value="부동산세금 · 법인세 연계">부동산세금 · 법인세 연계</option>
+            <option value="상속 · 증여 · 자금 연계">상속 · 증여 · 자금 연계</option>
           </select>
         </label>
         <label className="field field--full">
@@ -146,7 +145,7 @@ export default function InquiryForm() {
 
       <div className="inquiry-actions">
         <button className="primary-button" type="submit" disabled={status === "submitting"}>
-          {status === "submitting" ? "접수 중..." : "보험 상담 접수하기"}
+          {status === "submitting" ? "접수 중..." : "문의 접수하기"}
         </button>
         {feedback ? (
           <p className={`form-feedback form-feedback--${status}`}>{feedback}</p>
