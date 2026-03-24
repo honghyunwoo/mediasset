@@ -4,7 +4,7 @@
 
 - 사이트 문의는 `/api/inquiries`로 들어옵니다.
 - 운영 기준:
-  - 1차 접수: `Gmail SMTP` 또는 `Resend` 이메일
+  - 1차 접수: `Web3Forms`, `Gmail SMTP`, 또는 `Resend`
 - 수신 메일: `mediasset1@gmail.com`
 - 문의 데이터는 장기 저장을 전제로 두지 않습니다.
 - 문의 확인 및 회신 후에는 별도 보관하지 않는 운영을 기준으로 합니다.
@@ -14,14 +14,23 @@
 `.env.local` 파일을 만들고 아래 값을 넣습니다.
 
 ```env
+WEB3FORMS_ACCESS_KEY=
+INQUIRY_NOTIFY_TO=mediasset1@gmail.com
+```
+
+가장 간단한 방식은 `Web3Forms`입니다. 메일 계정 비밀번호 없이 access key만 넣으면 됩니다.
+
+## 3. Gmail SMTP 준비
+
+`Web3Forms`를 쓰지 않을 경우 아래처럼 설정합니다.
+
+```env
 SMTP_SERVICE=gmail
 SMTP_USER=mediasset1@gmail.com
 SMTP_PASS=
 INQUIRY_NOTIFY_FROM=mediasset1@gmail.com
 INQUIRY_NOTIFY_TO=mediasset1@gmail.com
 ```
-
-## 3. Gmail SMTP 준비
 
 1. `mediasset1@gmail.com` 계정에 `2단계 인증`을 켭니다.
 2. 구글 계정에서 `앱 비밀번호`를 생성합니다.
