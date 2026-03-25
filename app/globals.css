@@ -841,6 +841,78 @@ textarea:focus-visible {
   margin-top: 48px;
 }
 
+.field-records {
+  margin-top: 48px;
+}
+
+.field-records__heading {
+  display: grid;
+  gap: 10px;
+  max-width: 42rem;
+}
+
+.field-records__heading p:last-child,
+.field-records__footer p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.field-records__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.field-record {
+  margin: 0;
+  overflow: hidden;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 34px rgba(18, 34, 54, 0.08);
+}
+
+.field-record__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: rgba(19, 52, 91, 0.08);
+}
+
+.field-record__image {
+  object-fit: cover;
+}
+
+.field-record__caption {
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px 20px;
+}
+
+.field-record__label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+}
+
+.field-record__caption strong {
+  font-size: 1.04rem;
+  line-height: 1.45;
+  color: var(--navy-deep);
+}
+
+.field-records__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+}
+
 .briefing-teaser {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
@@ -1480,6 +1552,7 @@ textarea:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  .field-records__grid,
   .consultation-list,
   .trust-strip,
   .advisor-panel__meta {
@@ -1542,7 +1615,8 @@ textarea:focus-visible {
   .board-grid,
   .board-hub-grid,
   .recent-post-grid,
-  .consultation-list {
+  .consultation-list,
+  .field-records__grid {
     grid-template-columns: 1fr;
   }
 
@@ -1608,6 +1682,10 @@ textarea:focus-visible {
 
   .briefing-teaser__actions {
     justify-items: stretch;
+  }
+
+  .field-records__footer {
+    align-items: stretch;
   }
 
   .subpage-actions .primary-button,

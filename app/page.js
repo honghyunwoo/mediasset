@@ -46,6 +46,21 @@ const advisorHighlights = [
   "상속·증여, 승계, 자금 흐름 연결",
 ];
 
+const fieldRecords = [
+  {
+    label: "세미나",
+    title: "의사 대상 세미나 발표 현장",
+    src: "/images/field/seminar-stage.jpg",
+    alt: "의사 대상 세미나에서 발표 중인 홍준혁",
+  },
+  {
+    label: "현장 브리핑",
+    title: "법인·보장 관련 현장 설명",
+    src: "/images/field/seminar-hall.jpg",
+    alt: "현장에서 법인과 보장 관련 설명이 진행되는 세미나 장면",
+  },
+];
+
 const partnerCards = [
   {
     label: "법인보험",
@@ -265,6 +280,39 @@ export default function Page() {
           <a className="ghost-button ghost-button--dark advisor-panel__action" href="#contact">
             문의로 바로 이동
           </a>
+        </div>
+      </section>
+
+      <section className="field-records">
+        <div className="field-records__heading">
+          <p className="section-label">현장 기록</p>
+          <h2>세미나와 현장에서 반복된 질문을 바탕으로 상담합니다.</h2>
+          <p>실제 현장에서 자주 나오는 질문과 설명 흐름을 기준으로 필요한 주제를 먼저 정리합니다.</p>
+        </div>
+        <div className="field-records__grid">
+          {fieldRecords.map((item) => (
+            <figure className="field-record" key={item.title}>
+              <div className="field-record__media">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 860px) 100vw, 50vw"
+                  className="field-record__image"
+                />
+              </div>
+              <figcaption className="field-record__caption">
+                <span className="field-record__label">{item.label}</span>
+                <strong>{item.title}</strong>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="field-records__footer">
+          <p>현장에서 다뤘던 주제는 브리핑에서도 더 간단히 정리해 두었습니다.</p>
+          <Link className="text-link" href="/boards">
+            관련 브리핑 보기
+          </Link>
         </div>
       </section>
 
