@@ -1,9 +1,27 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { boardCategories, formatBoardDate, getBoardCategory } from "@/data/boards";
 import { buildInquiryHref, getBoardInquiryPrefill } from "@/lib/inquiry";
 import { absoluteUrl } from "@/lib/site";
+
+const seminarFieldGallery = [
+  {
+    src: "/images/field/event-screen.jpg",
+    alt: "행사 현장에서 홍준혁 소개 화면과 참석자들이 함께 있는 장면",
+    label: "행사 기록",
+    title: "행사 현장에서 진행된 소개 장면",
+    className: "field-gallery__image--rotate-fix",
+  },
+  {
+    src: "/images/field/event-award.jpg",
+    alt: "행사와 시상 장면이 함께 보이는 현장 사진",
+    label: "현장 메모",
+    title: "세미나 이후 이어진 행사 현장",
+    className: "field-gallery__image--rotate-fix",
+  },
+];
 
 export function generateStaticParams() {
   return boardCategories.map((category) => ({ slug: category.slug }));
@@ -41,6 +59,8 @@ export default async function BoardCategoryPage({ params }) {
     notFound();
   }
 
+  const showSeminarGallery = slug === "seminar-guide";
+
   return (
     <main className="subpage-shell">
       <section className="subpage-hero">
@@ -62,6 +82,35 @@ export default async function BoardCategoryPage({ params }) {
           </Link>
         </div>
       </section>
+
+      {showSeminarGallery ? (
+        <section className="field-gallery">
+          <div className="field-gallery__heading">
+            <p className="section-label">현장 사진</p>
+            <h2>세미나와 행사 현장도 함께 정리해 두었습니다.</h2>
+            <p>과한 소개보다, 실제로 어떤 자리에서 어떤 흐름으로 설명해 왔는지 짧게 확인할 수 있는 기록입니다.</p>
+          </div>
+          <div className="field-gallery__grid">
+            {seminarFieldGallery.map((item) => (
+              <figure className="field-gallery__item" key={item.title}>
+                <div className="field-gallery__media">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 860px) 100vw, 50vw"
+                    className={["field-gallery__image", item.className].filter(Boolean).join(" ")}
+                  />
+                </div>
+                <figcaption className="field-gallery__caption">
+                  <span className="field-gallery__label">{item.label}</span>
+                  <strong>{item.title}</strong>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="board-category-list">
         {category.posts.map((post) => (

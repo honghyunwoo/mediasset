@@ -310,7 +310,7 @@ export default function Page() {
         </div>
         <div className="field-records__footer">
           <p>현장에서 다뤘던 주제는 브리핑에서도 더 간단히 정리해 두었습니다.</p>
-          <Link className="text-link" href="/boards">
+          <Link className="text-link" href="/boards/seminar-guide">
             관련 브리핑 보기
           </Link>
         </div>

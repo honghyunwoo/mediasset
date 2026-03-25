@@ -260,6 +260,8 @@ textarea:focus-visible {
 .contact-panel h2,
 .consultation-heading h2,
 .advisor-panel__copy h2,
+.field-records__heading h2,
+.field-gallery__heading h2,
 .briefing-teaser h2 {
   margin: 12px 0 0;
   font-size: clamp(1.9rem, 2.8vw, 2.35rem);
@@ -1301,6 +1303,73 @@ textarea:focus-visible {
   margin-top: 28px;
 }
 
+.field-gallery {
+  margin-top: 28px;
+}
+
+.field-gallery__heading {
+  display: grid;
+  gap: 10px;
+  max-width: 42rem;
+}
+
+.field-gallery__heading p:last-child {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.field-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.field-gallery__item {
+  margin: 0;
+  overflow: hidden;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 34px rgba(18, 34, 54, 0.08);
+}
+
+.field-gallery__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: rgba(19, 52, 91, 0.08);
+}
+
+.field-gallery__image {
+  object-fit: cover;
+  image-orientation: none;
+}
+
+.field-gallery__image--rotate-fix {
+  transform: rotate(-90deg) scale(1.04);
+}
+
+.field-gallery__caption {
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px 20px;
+}
+
+.field-gallery__label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+}
+
+.field-gallery__caption strong {
+  font-size: 1.04rem;
+  line-height: 1.45;
+  color: var(--navy-deep);
+}
+
 .board-post-card {
   padding: 26px;
 }
@@ -1555,7 +1624,8 @@ textarea:focus-visible {
   .field-records__grid,
   .consultation-list,
   .trust-strip,
-  .advisor-panel__meta {
+  .advisor-panel__meta,
+  .field-gallery__grid {
     grid-template-columns: 1fr;
   }
 
@@ -1595,6 +1665,8 @@ textarea:focus-visible {
   .contact-panel h2,
   .consultation-heading h2,
   .advisor-panel__copy h2,
+  .field-records__heading h2,
+  .field-gallery__heading h2,
   .briefing-teaser h2 {
     font-size: clamp(1.8rem, 6.8vw, 2.05rem);
   }
@@ -1616,7 +1688,8 @@ textarea:focus-visible {
   .board-hub-grid,
   .recent-post-grid,
   .consultation-list,
-  .field-records__grid {
+  .field-records__grid,
+  .field-gallery__grid {
     grid-template-columns: 1fr;
   }
 
